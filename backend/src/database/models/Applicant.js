@@ -49,11 +49,11 @@ module.exports = (sequelize, DataTypes )=>{
     };
    const Applicant = sequelize.define(alias,cols,config);
     Applicant.associate = function(models){
-        Applicant.belongsTo(models.Professions,{
+        Applicant.belongsTo(models.Profession,{
             as: "professions",
             foreignKey: "idProfesion"
         })
     }
 
-    return Aplicant;
+    return Applicant;
 }
