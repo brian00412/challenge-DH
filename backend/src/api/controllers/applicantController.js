@@ -1,9 +1,6 @@
 const path = require('path');
 const db = require('../../database/models');
 const sequelize = db.sequelize;
-const { Op } = require("sequelize");
-const moment = require('moment');
-
 
 const applicantAPIController = {
     'list': async (req, res) => {
@@ -23,7 +20,7 @@ const applicantAPIController = {
         } catch (error) {
             // Manejo de errores
             console.error("Error:", error);
-            res.status(500).json({ error: 'Internal Server Error' });
+            res.status(500).json({ error: 'Error' });
         }
     }
     

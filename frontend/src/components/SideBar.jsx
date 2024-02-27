@@ -1,7 +1,9 @@
 import React from 'react';
+
 import MenuSelection from './MenuSelection';
 import Applicant from './Applicant';
 import Profession from './Profession';
+import banner from '../assets/img/banner.jpg'
 function SideBar() {
     return (
         <React.Fragment>
@@ -58,7 +60,7 @@ function SideBar() {
                             administrativos, profesionales y técnicos.
                         </p>
                         <div>
-                            <img src="./assets/img/banner.jpg" alt="Rcursos Humanos" />
+                            <img src={banner} alt="Rcursos Humanos" />
                         </div>
                         {/*Fin Encabezado*/}
                     </header>

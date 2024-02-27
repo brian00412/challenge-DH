@@ -1,6 +1,21 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState, Component} from "react";
+import RowTable from "./RowTable";
 
 class Profession extends Component {
+    constructor(){
+        super()
+        this.state = {
+            professionList: [],
+        }
+    }
+	componentDidMount(){
+        fetch("http://localhost:3001/api/professions")
+        .then(res => res.json())
+        .then(profession =>{
+            this.setState({professionList: profession.data})
+            console.log(this.state.professionList)
+        })
+    }
     render() {
         return (
             <React.Fragment>
@@ -14,54 +29,13 @@ class Profession extends Component {
                         >
                             Listado de Profesiones
                         </h4>
-                        <button
-                            type="button"
-                            className="list-group-item list-group-item-action text-center"
-                        >
-                            Abogado
-                        </button>
-                        <button
-                            type="button"
-                            className="list-group-item list-group-item-action text-center"
-                        >
-                            Arquitecto
-                        </button>
-                        <button
-                            type="button"
-                            className="list-group-item list-group-item-action text-center"
-                        >
-                            Botánico
-                        </button>
-                        <button
-                            type="button"
-                            className="list-group-item list-group-item-action text-center"
-                        >
-                            Computista
-                        </button>
-                        <button
-                            type="button"
-                            className="list-group-item list-group-item-action text-center"
-                        >
-                            Economista
-                        </button>
-                        <button
-                            type="button"
-                            className="list-group-item list-group-item-action text-center"
-                        >
-                            Técnico de sonido
-                        </button>
-                        <button
-                            type="button"
-                            className="list-group-item list-group-item-action text-center"
-                        >
-                            Profesor
-                        </button>
-                        <button
-                            type="button"
-                            className="list-group-item list-group-item-action text-center"
-                        >
-                            Linguista
-                        </button>
+                        {
+										
+                            this.state.professionList.map((prof,index)=>{
+                                return  <RowTable  {...prof}  key={index} />
+                                })
+                        }
+                        
                     </div>
                 </section>
                 {/*Fin sección profesiones*/}

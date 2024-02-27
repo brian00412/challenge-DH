@@ -1,10 +1,13 @@
+import React from 'react';
+import logo from '../assets/img/logo-dh.png';
+import '../assets/css/font-awesome.min.css';
 function MenuSelection() {
     return <>
     {/*Sección menu*/}
     <header className="menu-wrap">
       <figure className="user">
         <div className="user-avatar">
-          <img src="./assets/img/logo-dh.png" alt="Logo Digital House	" />
+          <img src={logo} alt="Logo Digital House	" />
         </div>
         <figcaption>Digital House</figcaption>
       </figure>
